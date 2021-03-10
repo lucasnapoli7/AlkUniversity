@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlkUniversity_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="operation" Relationship="Self.FK_operation_module" FromRole="module" ToRole="operation" />
+  </EntityType>
+  <EntityType Name="operation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="module_id" Type="Int32" />
+    <NavigationProperty Name="module" Relationship="Self.FK_operation_module" FromRole="operation" ToRole="module" />
+    <NavigationProperty Name="role_operation" Relationship="Self.FK_role_operation_operation" FromRole="operation" ToRole="role_operation" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="role_operation" Relationship="Self.FK_role_operation_role" FromRole="role" ToRole="role_operation" />
+    <NavigationProperty Name="users" Relationship="Self.FK_users_role" FromRole="role" ToRole="users" />
+  </EntityType>
+  <EntityType Name="role_operation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="Int32" />
+    <Property Name="operation_id" Type="Int32" />
+    <NavigationProperty Name="operation" Relationship="Self.FK_role_operation_operation" FromRole="role_operation" ToRole="operation" />
+    <NavigationProperty Name="role" Relationship="Self.FK_role_operation_role" FromRole="role_operation" ToRole="role" />
+  </EntityType>
+  <EntityType Name="schedules">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="subjects" Relationship="Self.FK_subjects_schedules" FromRole="schedules" ToRole="subjects" />
+  </EntityType>
+  <EntityType Name="states">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="teachers" Relationship="Self.FK_teachers_states" FromRole="states" ToRole="teachers" />
+  </EntityType>
+  <EntityType Name="subjects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="schedule_id" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="teacher_id" Type="Int32" />
+    <Property Name="max_student" Type="Int32" />
+    <NavigationProperty Name="schedules" Relationship="Self.FK_subjects_schedules" FromRole="subjects" ToRole="schedules" />
+    <NavigationProperty Name="teachers" Relationship="Self.FK_subjects_teachers" FromRole="subjects" ToRole="teachers" />
+    <NavigationProperty Name="user_subject" Relationship="Self.FK_user_subject_subjects" FromRole="subjects" ToRole="user_subject" />
+  </EntityType>
+  <EntityType Name="teachers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dni" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="state_id" Type="Int32" />
+    <NavigationProperty Name="states" Relationship="Self.FK_teachers_states" FromRole="teachers" ToRole="states" />
+    <NavigationProperty Name="subjects" Relationship="Self.FK_subjects_teachers" FromRole="teachers" ToRole="subjects" />
+  </EntityType>
+  <EntityType Name="user_subject">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="subject_id" Type="Int32" />
+    <NavigationProperty Name="subjects" Relationship="Self.FK_user_subject_subjects" FromRole="user_subject" ToRole="subjects" />
+    <NavigationProperty Name="users" Relationship="Self.FK_user_subject_users" FromRole="user_subject" ToRole="users" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dni" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="file" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="role_id" Type="Int32" />
+    <NavigationProperty Name="role" Relationship="Self.FK_users_role" FromRole="users" ToRole="role" />
+    <NavigationProperty Name="user_subject" Relationship="Self.FK_user_subject_users" FromRole="users" ToRole="user_subject" />
+  </EntityType>
+  <Association Name="FK_operation_module">
+    <End Role="module" Type="Self.module" Multiplicity="0..1" />
+    <End Role="operation" Type="Self.operation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="module">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="operation">
+        <PropertyRef Name="module_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_role_operation_operation">
+    <End Role="operation" Type="Self.operation" Multiplicity="0..1" />
+    <End Role="role_operation" Type="Self.role_operation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="operation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="role_operation">
+        <PropertyRef Name="operation_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_role_operation_role">
+    <End Role="role" Type="Self.role" Multiplicity="0..1" />
+    <End Role="role_operation" Type="Self.role_operation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="role_operation">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_role">
+    <End Role="role" Type="Self.role" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subjects_schedules">
+    <End Role="schedules" Type="Self.schedules" Multiplicity="0..1" />
+    <End Role="subjects" Type="Self.subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="schedules">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="subjects">
+        <PropertyRef Name="schedule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teachers_states">
+    <End Role="states" Type="Self.states" Multiplicity="0..1" />
+    <End Role="teachers" Type="Self.teachers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="states">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="teachers">
+        <PropertyRef Name="state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subjects_teachers">
+    <End Role="teachers" Type="Self.teachers" Multiplicity="0..1" />
+    <End Role="subjects" Type="Self.subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teachers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="subjects">
+        <PropertyRef Name="teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_subject_subjects">
+    <End Role="subjects" Type="Self.subjects" Multiplicity="0..1" />
+    <End Role="user_subject" Type="Self.user_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subjects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_subject">
+        <PropertyRef Name="subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_subject_users">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="user_subject" Type="Self.user_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_subject">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AlkUniversity_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="module" EntityType="Self.module" />
+    <EntitySet Name="operation" EntityType="Self.operation" />
+    <EntitySet Name="role" EntityType="Self.role" />
+    <EntitySet Name="role_operation" EntityType="Self.role_operation" />
+    <EntitySet Name="schedules" EntityType="Self.schedules" />
+    <EntitySet Name="states" EntityType="Self.states" />
+    <EntitySet Name="subjects" EntityType="Self.subjects" />
+    <EntitySet Name="teachers" EntityType="Self.teachers" />
+    <EntitySet Name="user_subject" EntityType="Self.user_subject" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <AssociationSet Name="FK_operation_module" Association="Self.FK_operation_module">
+      <End Role="module" EntitySet="module" />
+      <End Role="operation" EntitySet="operation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_role_operation_operation" Association="Self.FK_role_operation_operation">
+      <End Role="operation" EntitySet="operation" />
+      <End Role="role_operation" EntitySet="role_operation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_role_operation_role" Association="Self.FK_role_operation_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="role_operation" EntitySet="role_operation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_role" Association="Self.FK_users_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subjects_schedules" Association="Self.FK_subjects_schedules">
+      <End Role="schedules" EntitySet="schedules" />
+      <End Role="subjects" EntitySet="subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teachers_states" Association="Self.FK_teachers_states">
+      <End Role="states" EntitySet="states" />
+      <End Role="teachers" EntitySet="teachers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subjects_teachers" Association="Self.FK_subjects_teachers">
+      <End Role="teachers" EntitySet="teachers" />
+      <End Role="subjects" EntitySet="subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_subject_subjects" Association="Self.FK_user_subject_subjects">
+      <End Role="subjects" EntitySet="subjects" />
+      <End Role="user_subject" EntitySet="user_subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_subject_users" Association="Self.FK_user_subject_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="user_subject" EntitySet="user_subject" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

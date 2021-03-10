@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="baba43921c9a4757a2f4bfa9ed7a7c99" Name="Diagram1">
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.module" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.operation" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.role" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.role_operation" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.schedules" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.states" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.subjects" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.teachers" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.user_subject" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlkUniversity_dbModel.users" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_operation_module" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_role_operation_operation" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_role_operation_role" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_users_role" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_subjects_schedules" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_teachers_states" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_subjects_teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_user_subject_subjects" ManuallyRouted="false" />
+        <AssociationConnector Association="AlkUniversity_dbModel.FK_user_subject_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

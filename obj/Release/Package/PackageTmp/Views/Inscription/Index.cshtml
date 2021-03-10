@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AlkUniversity.Models.subjects>
+
+@{
+    ViewBag.Title = "Inscription";
+}
+
+<h2>Subjects</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DetailsStudents", new { id = item.id }) |
+            @Html.ActionLink("Register", "Register", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Control Panel", "Student", "Home")
+</div>

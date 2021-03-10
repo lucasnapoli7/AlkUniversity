@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div class="row">
+    <form id="frm">
+        <div class="col-lg-6 col-lg-offset-4">
+            <p>Dni</p>
+            <p><input type="text" name="dni" /></p>
+            <p>File</p>
+            <p><input type="text" name="file" /></p>
+            <input type="submit" class="btn btn-success" value="Log In" />
+
+        </div>
+    </form>
+</div>
+<hr />
+<p>To enter the DNI you need to have 8 characters and the file needs 6 numbers</p>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#frm").submit(function (e) {
+                e.preventDefault();
+                url = "@Url.Content("~/Access/Enter")";
+                parame = $(this).serialize();
+                $.post(url, parame, function (data) {
+                    if (data=="1") {
+                        document.location.href = "@Url.Content("~/Home/Admin")";
+                    } else {
+                        if (data == "2") {
+                            document.location.href = "@Url.Content("~/Home/Student")";
+                        } else {
+                            alert(data);
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+}

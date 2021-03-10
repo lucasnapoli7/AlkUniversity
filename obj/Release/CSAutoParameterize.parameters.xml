@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DB-Web.config Connection String" description="DB Connection String used in web.config by the application to access the database." defaultValue="[PlaceHolder for connection: ]" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\PC\\Documents\\repos\\AlkUniversity\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DB']/@connectionString" />
+  </parameter>
+  <parameter name="probandoEntities-Web.config Connection String" description="probandoEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=localhost;initial catalog=probando;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\PC\\Documents\\repos\\AlkUniversity\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='probandoEntities']/@connectionString" />
+  </parameter>
+  <parameter name="probandoEntities1-Web.config Connection String" description="probandoEntities1 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=localhost;initial catalog=probando;integrated security=True;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\PC\\Documents\\repos\\AlkUniversity\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='probandoEntities1']/@connectionString" />
+  </parameter>
+  <parameter name="probandoEntities2-Web.config Connection String" description="probandoEntities2 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.DB.csdl|res://*/Models.DB.ssdl|res://*/Models.DB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=localhost;initial catalog=probando;integrated security=True;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\PC\\Documents\\repos\\AlkUniversity\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='probandoEntities2']/@connectionString" />
+  </parameter>
+  <parameter name="AlkUniversity_dbEntities-Web.config Connection String" description="AlkUniversity_dbEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model1.csdl|res://*/Models.Model1.ssdl|res://*/Models.Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=alkuniversitydbserver.database.windows.net;initial catalog=AlkUniversity_db;user id=lucas;password=hlPython3;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\PC\\Documents\\repos\\AlkUniversity\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AlkUniversity_dbEntities']/@connectionString" />
+  </parameter>
+</parameters>

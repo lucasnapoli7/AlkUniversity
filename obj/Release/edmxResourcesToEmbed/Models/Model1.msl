@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AlkUniversity_dbModelStoreContainer" CdmEntityContainer="AlkUniversity_dbEntities">
+    <EntitySetMapping Name="module">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.module">
+        <MappingFragment StoreEntitySet="module">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="operation">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.operation">
+        <MappingFragment StoreEntitySet="operation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="module_id" ColumnName="module_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role_operation">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.role_operation">
+        <MappingFragment StoreEntitySet="role_operation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="operation_id" ColumnName="operation_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schedules">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.schedules">
+        <MappingFragment StoreEntitySet="schedules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.states">
+        <MappingFragment StoreEntitySet="states">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjects">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.subjects">
+        <MappingFragment StoreEntitySet="subjects">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="schedule_id" ColumnName="schedule_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+          <ScalarProperty Name="max_student" ColumnName="max_student" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.teachers">
+        <MappingFragment StoreEntitySet="teachers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_subject">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.user_subject">
+        <MappingFragment StoreEntitySet="user_subject">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="AlkUniversity_dbModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="file" ColumnName="file" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
